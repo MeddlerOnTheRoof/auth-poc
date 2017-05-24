@@ -1,0 +1,7 @@
+﻿dbo.UnitArmor_drop.sql
+dbo.Build_drop.sql
+dbo.Unit_drop.sql
+dbo.Civilization_drop.sql
+dbo.UnitType_drop.sql
+dbo.AttackType_drop.sql
+dbo.ArmorType_drop.sql

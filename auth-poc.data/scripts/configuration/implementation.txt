@@ -1,0 +1,10 @@
+﻿dbo.ArmorType_create.sql
+dbo.AttackType_create.sql
+dbo.UnitType_create.sql
+dbo.Civilization_create.sql
+dbo.Unit_create.sql
+dbo.Build_create.sql
+dbo.UnitArmor_create.sql
+dbo.ArmorType_insert.sql
+dbo.AttackType_insert.sql
+dbo.UnitType_insert.sql
