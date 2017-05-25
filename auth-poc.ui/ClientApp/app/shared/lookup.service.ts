@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map'
 
 @Injectable()
 export class LookupService {
-    private baseUrl: string = 'http://localhost:3301/api/Lookup/';
+    private baseUrl: string = 'http://localhost:3301/api/Lookups/';
 
     constructor(private http: Http) { }
 
