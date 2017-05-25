@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using auth_poc.data.Repositories;
+using auth_poc.data.Interfaces;
 using Swashbuckle.Swagger.Model;
 
 namespace auth_poc.api
@@ -42,6 +44,12 @@ namespace auth_poc.api
             }));
 
             services.AddMvc();
+
+            // maybe these should be as a singleton
+            services.AddTransient<ICivilizationsRepository, CivilizationsRepository>();
+            services.AddTransient<ILookupsRepository, LookupsRepository>();
+            services.AddTransient<IUnitsRepository, UnitsRepository>();
+
             //var pathToDoc = GetXmlCommentsPath();
             services.AddSwaggerGen();
             services.ConfigureSwaggerGen(options =>
