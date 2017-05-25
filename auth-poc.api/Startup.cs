@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Swashbuckle.Swagger.Model;
 
 namespace auth_poc.api
 {
@@ -41,6 +42,20 @@ namespace auth_poc.api
             }));
 
             services.AddMvc();
+            //var pathToDoc = GetXmlCommentsPath();
+            services.AddSwaggerGen();
+            services.ConfigureSwaggerGen(options =>
+            {
+                options.SingleApiVersion(new Info
+                {
+                    Version = "v1",
+                    Title = "API",
+                    Description = "Authentication and Authorization Proof of Concept Project: random api endpoints",
+                    TermsOfService = "None"
+                });
+                //options.IncludeXmlComments(pathToDoc);
+                options.DescribeAllEnumsAsStrings();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
@@ -52,6 +67,8 @@ namespace auth_poc.api
             app.UseCors("CorsPolicy");
 
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUi();
         }
     }
 }
