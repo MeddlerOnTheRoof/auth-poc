@@ -26,13 +26,19 @@ export class UnitDetailComponent implements OnInit {
         });
 
         if (this.unit.unitId > 0) {
-            this.unitService.getUnit
+            this.unitService.getUnit(this.unit.unitId)
+                .subscribe((unit: Unit) => {
+                    this.unit = unit;
+                });
         } else {
             this.unit.food = 0;
             this.unit.wood = 0;
             this.unit.gold = 0;
             this.unit.stone = 0;
             this.unit.moveSpeed = 0;
+            this.unit.lineOfSight = 0;
+            this.unit.moveSpeed = 0;
+            this.unit.health = 0;
         }
 
         this.lookupService.getUnitTypes()
