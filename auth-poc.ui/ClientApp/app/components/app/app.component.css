@@ -4,3 +4,9 @@
         padding-top: 50px;
     }
 }
+
+/deep/ .thead-inverse {
+    background-color: #292b2c;
+    color: white;
+    border: none;
+}
