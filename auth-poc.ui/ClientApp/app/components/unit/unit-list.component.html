@@ -1,42 +1,83 @@
-﻿<h1>Units</h1>
+﻿<div class='page-header'>
+    <div class='btn-toolbar pull-right'>
+        <div class='btn-group'>
+            <button type='button' class='btn btn-primary'  [routerLink]="['/unit-detail', { unitId: 0 }]">Add new unit</button>
+        </div>
+    </div>
+    <h2>Units</h2>
+</div>
 
-<table class="table">
-    <thead>
+<p>
+    <ul>
+        <li>
+            <b>F</b> - Food.
+        </li>
+        <li>
+            <b>W</b> - Wood.
+        </li>
+        <li>
+            <b>G</b> - Gold.
+        </li>
+        <li>
+            <b>S</b> - Stone.
+        </li>
+        <li>
+            <b>MS</b> - Move Speed.
+        </li>
+        <li>
+            <b>LoS</b> - Line of Sight.
+        </li>
+        <li>
+            <b>H</b> - Health.
+        </li>
+        <li>
+            <b>AR</b> - Attack Range.
+        </li>
+        <li>
+            <b>AD</b> - Attack Damage.
+        </li>
+        <li>
+            <b>AT</b> - Attack Type.
+        </li>
+        <li>
+            <b>AS</b> - Attack Speed.
+        </li>
+    </ul>
+</p>
+
+<table class="table table-bordered table-condensed">
+    <thead class="thead-inverse">
         <tr>
-            <td [routerLink]="['unit-detail', { unitId: 0 }]">
-                Add new unit
-            </td>
-        </tr>
-        <tr>
-            <th>Unit ID</th>
+            <th>Unit Name</th>
             <th>Unit Type</th>
-            <th>Food</th>
-            <th>Wood</th>
-            <th>Gold</th>
-            <th>Stone</th>
-            <th>Build Time</th>
-            <th>Move Speed</th>
-            <th>Line of Sight</th>
-            <th>Health</th>
-            <th>Attack Range</th>
-            <th>Attack Damage</th>
-            <th>Attack Type</th>
-            <th>Attack Speed</th>
+            <th>F</th>
+            <th>W</th>
+            <th>G</th>
+            <th>S</th>
+            <th>MS</th>
+            <th>LoS</th>
+            <th>H</th>
+
+            <th>AR</th>
+            <th>AD</th>
+            <th>AT</th>
+            <th>AS</th>
+            <th></th>
         </tr>
     </thead>
     <tbody *ngIf="units">
         <tr *ngFor="let unit of units">
-            <td>{{ unit.unitId }}</td>
-            <td>{{ unit.unitName }}</td>
+            <td><a [routerLink]="['/unit-detail', { unitId: unit.unitId }]">{{ unit.unitName }}</a></td>
             <td>{{ unit.unitTypeName }}</td>
             <td>{{ unit.food }}</td>
             <td>{{ unit.wood }}</td>
             <td>{{ unit.gold }}</td>
             <td>{{ unit.stone }}</td>
-            <td>{{ unit.buildTime }}</td>
+
             <td>{{ unit.moveSpeed }}</td>
             <td>{{ unit.lineOfSight }}</td>
             <td>{{ unit.health }}</td>
+
             <td>{{ unit.attackRange }}</td>
             <td>{{ unit.attack }}</td>
             <td>{{ unit.attackTypeName }}</td>
