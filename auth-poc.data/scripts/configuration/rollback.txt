@@ -5,3 +5,5 @@ dbo.Civilization_drop.sql
 dbo.UnitType_drop.sql
 dbo.AttackType_drop.sql
 dbo.ArmorType_drop.sql
+dbo.UserAccount_drop.sql
+dbo.UserRole_drop.sql
