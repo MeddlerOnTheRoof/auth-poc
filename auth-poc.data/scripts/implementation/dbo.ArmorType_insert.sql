@@ -19,10 +19,10 @@ begin try
 
 			insert into dbo.ArmorType (ArmorTypeId, ArmorTypeName, CreatedByUser, CreatedByDate, ModifiedByUser, ModifiedByDate)
 			values 
-				(1, 'Slash', @user, @date, @user, @date),
-				(2, 'Crush', @user, @date, @user, @date),
-				(3, 'Pierce', @user, @date, @user, @date),
-				(4, 'Burn', @user, @date, @user, @date)
+				(1, 'Slash Armor', @user, @date, @user, @date),
+				(2, 'Crush Armor', @user, @date, @user, @date),
+				(3, 'Pierce Armor', @user, @date, @user, @date),
+				(4, 'Burn Armor', @user, @date, @user, @date)
 
 			set identity_insert dbo.ArmorType off;
 
