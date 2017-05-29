@@ -20,7 +20,7 @@ begin try
 				Gold int not null,
 				Stone int not null,
 				Wood int not null,
-				BuildTime time not null default '00:00:00',
+				--BuildTime time not null default '00:00:00',
 				MoveSpeed int not null,
 				LineOfSight int not null,
 				Health int not null,
