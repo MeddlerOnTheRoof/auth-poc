@@ -17,9 +17,9 @@ begin try
 				UserAccountName varchar(25) not null,
 				UserAccountPassword varchar(16) not null,
 				UserRoleId int not null,
-				CreatedByUserAccount varchar(20) not null,
+				CreatedByUser varchar(20) not null,
 				CreatedByDate datetime not null,
-				ModifiedByUserAccount varchar(20) not null,
+				ModifiedByUser varchar(20) not null,
 				ModifiedByDate datetime not null,
 				constraint pk_UserAccount primary key (
 					UserAccountId asc
