@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace auth_poc.data.DAL
@@ -12,6 +13,8 @@ namespace auth_poc.data.DAL
         public virtual DbSet<Unit> Unit { get; set; }
         public virtual DbSet<UnitArmor> UnitArmor { get; set; }
         public virtual DbSet<UnitType> UnitType { get; set; }
+        public virtual DbSet<UserAccount> UserAccount { get; set; }
+        public virtual DbSet<UserRole> UserRole { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -140,8 +143,6 @@ namespace auth_poc.data.DAL
                     .HasName("uq_Unit_UnitName")
                     .IsUnique();
 
-                entity.Property(e => e.BuildTime).HasDefaultValueSql("'00:00:00'");
-
                 entity.Property(e => e.CreatedByDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedByUser)
@@ -217,6 +218,62 @@ namespace auth_poc.data.DAL
                     .HasColumnType("varchar(20)");
 
                 entity.Property(e => e.UnitTypeName)
+                    .IsRequired()
+                    .HasColumnType("varchar(25)");
+            });
+
+            modelBuilder.Entity<UserAccount>(entity =>
+            {
+                entity.HasIndex(e => e.UserAccountName)
+                    .HasName("uq_UserAccount_UserAccountName")
+                    .IsUnique();
+
+                entity.Property(e => e.CreatedByDate).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedByUserAccount)
+                    .IsRequired()
+                    .HasColumnType("varchar(20)");
+
+                entity.Property(e => e.ModifiedByDate).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedByUserAccount)
+                    .IsRequired()
+                    .HasColumnType("varchar(20)");
+
+                entity.Property(e => e.UserAccountName)
+                    .IsRequired()
+                    .HasColumnType("varchar(25)");
+
+                entity.Property(e => e.UserAccountPassword)
+                    .IsRequired()
+                    .HasColumnType("varchar(16)");
+
+                entity.HasOne(d => d.UserRole)
+                    .WithMany(p => p.UserAccount)
+                    .HasForeignKey(d => d.UserRoleId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("fk_UserAccount_UserRole");
+            });
+
+            modelBuilder.Entity<UserRole>(entity =>
+            {
+                entity.HasIndex(e => e.UserRoleName)
+                    .HasName("uq_UserRole_UserRoleName")
+                    .IsUnique();
+
+                entity.Property(e => e.CreatedByDate).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedByUser)
+                    .IsRequired()
+                    .HasColumnType("varchar(20)");
+
+                entity.Property(e => e.ModifiedByDate).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedByUser)
+                    .IsRequired()
+                    .HasColumnType("varchar(20)");
+
+                entity.Property(e => e.UserRoleName)
                     .IsRequired()
                     .HasColumnType("varchar(25)");
             });
