@@ -15,7 +15,6 @@ namespace auth_poc.data.Models
         public int Gold { get; set; }
         public int Stone { get; set; }
         public int Wood { get; set; }
-        public TimeSpan BuildTime { get; set; }
         public int MoveSpeed { get; set; }
         public int LineOfSight { get; set; }
         public int Health { get; set; }
