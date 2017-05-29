@@ -22,7 +22,8 @@ begin try
 				(1, 'Building', @user, @date, @user, @date),
 				(2, 'Infantry', @user, @date, @user, @date),
 				(3, 'Archer', @user, @date, @user, @date),
-				(4, 'Siege', @user, @date, @user, @date)
+				(4, 'Cavalry', @user, @date, @user, @date),
+				(5, 'Siege', @user, @date, @user, @date)
 
 			set identity_insert dbo.UnitType off;
 
