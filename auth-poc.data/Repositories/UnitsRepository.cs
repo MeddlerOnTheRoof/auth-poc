@@ -104,6 +104,78 @@ namespace auth_poc.data.Repositories
             } : null;
         }
 
+        //private async Task<List<Unit>> GetDomainModels()
+        //{
+        //    return await (from u in _db.Unit
+        //                  join att in _db.AttackType on u.AttackTypeId equals att.AttackTypeId
+        //                  join ut in _db.UnitType on u.UnitTypeId equals ut.UnitTypeId
+        //                  join ua in _db.UnitArmor on u.UnitId equals ua.UnitId
+        //                  select new Unit()
+        //                  {
+        //                      UnitName = u.UnitName,
+        //                      UnitTypeId = u.UnitTypeId,
+        //                      UnitTypeName = ut.UnitTypeName,
+
+        //                      Food = u.Food,
+        //                      Gold = u.Gold,
+        //                      Stone = u.Stone,
+        //                      Wood = u.Wood,
+
+        //                      MoveSpeed = u.MoveSpeed,
+        //                      LineOfSight = u.LineOfSight,
+        //                      Health = u.Health,
+
+        //                      AttackRange = u.AttackRange,
+        //                      Attack = u.Attack,
+        //                      AttackTypeId = u.AttackTypeId,
+        //                      AttackTypeName = att.AttackTypeName,
+        //                      AttackSpeed = u.AttackSpeed,
+
+        //                      UnitArmor = u.UnitArmor.Select(armr => new UnitArmor()
+        //                      {
+        //                          UnitArmorId = armr.UnitArmorId,
+        //                          UnitId = armr.UnitId,
+        //                          ArmorTypeId = armr.ArmorTypeId,
+        //                          ArmorTypeName = armr.ArmorType.ArmorTypeName,
+        //                          UnitArmorValue = armr.UnitArmorValue,
+        //                          CreatedByDate = armr.CreatedByDate,
+        //                          CreatedByUser = armr.CreatedByUser,
+        //                          ModifiedByDate = armr.ModifiedByDate,
+        //                          ModifiedByUser = armr.ModifiedByUser
+        //                      }).ToList(),
+
+        //                      // todo: maybe move this to a separate api call and repo method
+        //                      //Builders = u.BuildBuilder
+        //                      //.Where(b => b.UnitId == u.UnitId)
+        //                      //.Select(ToDomainModelLite)
+        //                      //.ToList(),
+
+        //                      //Constructs = u.BuildUnit
+        //                      //.Where(b => b.BuilderId == u.UnitId)
+        //                      //.Select(ToDomainModelLite)
+        //                      //.ToList(),
+
+        //                      CreatedByUser = u.CreatedByUser,
+        //                      CreatedByDate = u.CreatedByDate,
+        //                      ModifiedByUser = u.ModifiedByUser,
+        //                      ModifiedByDate = u.ModifiedByDate
+        //                  }).ToListAsync();
+        //}
+
+        //private UnitLite ToDomainModelLite(EF.Build build)
+        //{
+        //    return build != null ? new UnitLite()
+        //    {
+        //        UnitId = build.UnitId,
+        //        UnitName = build.Unit.UnitName,
+        //        UnitTypeId = build.Unit.UnitTypeId,
+        //        UnitTypeName = build.Unit.UnitType.UnitTypeName,
+        //        CreatedByUser = build.Unit.CreatedByUser,
+        //        CreatedByDate = build.Unit.CreatedByDate,
+        //        ModifiedByUser = build.Unit.ModifiedByUser,
+        //    } : null;
+        //}
+
         private EF.Unit ToDatabaseModel(Unit unit)
         {
             return unit != null ? new EF.Unit()
