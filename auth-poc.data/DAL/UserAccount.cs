@@ -9,9 +9,9 @@ namespace auth_poc.data.DAL
         public string UserAccountName { get; set; }
         public string UserAccountPassword { get; set; }
         public int UserRoleId { get; set; }
-        public string CreatedByUserAccount { get; set; }
+        public string CreatedByUser { get; set; }
         public DateTime CreatedByDate { get; set; }
-        public string ModifiedByUserAccount { get; set; }
+        public string ModifiedByUser { get; set; }
         public DateTime ModifiedByDate { get; set; }
 
         public virtual UserRole UserRole { get; set; }
