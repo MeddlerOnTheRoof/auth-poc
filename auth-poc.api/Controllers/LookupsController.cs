@@ -19,11 +19,20 @@ namespace auth_poc.api.Controllers
 
         [HttpGet("UnitTypes")]
         [SwaggerResponse(System.Net.HttpStatusCode.OK, Type = typeof(IEnumerable<UnitType>))]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetUnitTypesAsync()
         {
-            var unitTypes = await _db.GetUnitTypes();
+            var unitTypes = await _db.GetUnitTypesAsync();
 
             return Ok(unitTypes);
+        }
+
+        [HttpGet("UserRoles")]
+        [SwaggerResponse(System.Net.HttpStatusCode.OK, Type = typeof(IEnumerable<UserRole>))]
+        public async Task<IActionResult> GetUserRolesAsync()
+        {
+            var userRoles = await _db.GetUserRolesAsync();
+
+            return Ok(userRoles);
         }
     }
 }
