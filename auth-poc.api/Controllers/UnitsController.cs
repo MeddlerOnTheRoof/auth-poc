@@ -28,9 +28,13 @@ namespace auth_poc.api.Controllers
 
         [HttpGet("{unitId}")]
         [SwaggerResponse(System.Net.HttpStatusCode.OK, Type = typeof(Unit))]
+        [SwaggerResponse(System.Net.HttpStatusCode.NotFound)]
         public async Task<IActionResult> Get(int unitId)
         {
             var unit = await _db.GetUnitAsync(unitId);
+
+            if (unit == null)
+                return NotFound();
 
             return Ok(unit);
         }
