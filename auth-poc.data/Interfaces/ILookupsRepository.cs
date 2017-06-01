@@ -6,6 +6,7 @@ namespace auth_poc.data.Interfaces
 {
     public interface ILookupsRepository
     {
-        Task<IEnumerable<UnitType>> GetUnitTypes();
+        Task<IEnumerable<UnitType>> GetUnitTypesAsync();
+        Task<IEnumerable<UserRole>> GetUserRolesAsync();
     }
 }

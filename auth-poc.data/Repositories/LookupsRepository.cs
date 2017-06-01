@@ -17,7 +17,7 @@ namespace auth_poc.data.Repositories
             _db = new EF.AuthPocContext();
         }
 
-        public async Task<IEnumerable<UnitType>> GetUnitTypes()
+        public async Task<IEnumerable<UnitType>> GetUnitTypesAsync()
         {
             return await _db.UnitType.Select(ut => new UnitType()
             {
@@ -27,6 +27,19 @@ namespace auth_poc.data.Repositories
                 CreatedByDate = ut.CreatedByDate,
                 ModifiedByUser = ut.ModifiedByUser,
                 ModifiedByDate = ut.ModifiedByDate
+            }).ToListAsync();
+        }
+
+        public async Task<IEnumerable<UserRole>> GetUserRolesAsync()
+        {
+            return await _db.UserRole.Select(ur => new UserRole()
+            {
+                UserRoleId = ur.UserRoleId,
+                UserRoleName = ur.UserRoleName,
+                CreatedByUser = ur.CreatedByUser,
+                CreatedByDate = ur.CreatedByDate,
+                ModifiedByDate = ur.ModifiedByDate,
+                ModifiedByUser = ur.ModifiedByUser
             }).ToListAsync();
         }
     }
