@@ -230,13 +230,13 @@ namespace auth_poc.data.DAL
 
                 entity.Property(e => e.CreatedByDate).HasColumnType("datetime");
 
-                entity.Property(e => e.CreatedByUserAccount)
+                entity.Property(e => e.CreatedByUser)
                     .IsRequired()
                     .HasColumnType("varchar(20)");
 
                 entity.Property(e => e.ModifiedByDate).HasColumnType("datetime");
 
-                entity.Property(e => e.ModifiedByUserAccount)
+                entity.Property(e => e.ModifiedByUser)
                     .IsRequired()
                     .HasColumnType("varchar(20)");
 
