@@ -1,4 +1,4 @@
-﻿import { BaseEntity } from './base-entity';
+﻿import { BaseEntity } from '../../../shared/base-entity';
 
 export class UserAccount extends BaseEntity {
     public userAccountId: number;
