@@ -14,7 +14,7 @@ begin try
 		begin
 			create table dbo.UserAccount(
 				UserAccountId int identity(1,1) not null,
-				UserAccountName varchar(25) not null,
+				UserAccountName varchar(20) not null,
 				UserAccountPassword varchar(16) not null,
 				UserRoleId int not null,
 				CreatedByUser varchar(20) not null,
