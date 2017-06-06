@@ -1,4 +1,4 @@
-﻿<h1>Unit Detail</h1>
+﻿<h2>Unit Detail</h2>
 
 <p *ngIf="!unit">
     <em>Loading...</em>
@@ -14,7 +14,9 @@
         <div class="col-lg-6 col-md-6 col-sm-12">
             <label>Unit Type</label>
             <select class="form-control" name="unitTypeId" #unitTypeId="ngModel" [(ngModel)]="unit.unitTypeId" required>
-                <option *ngFor="let unitType of unitTypes" [value]="unitType.unitTypeId">{{ unitType.unitTypeName }}</option>
+                <option *ngFor="let unitType of unitTypes" [value]="unitType.unitTypeId">
+                    {{ unitType.unitTypeName }}
+                </option>
             </select>
             <div *ngIf="unitTypeId.errors && unitTypeId.errors.required" class="label label-danger">This field is required.</div>
         </div>
@@ -51,17 +53,17 @@
     </table>
 
     <div class="form-group row">
-        <div class="col-lg-3">
+        <div class="col-lg-4 col-md-4 col-sm-12">
             <label>Move Speed</label>
             <input type="number" class="form-control" name="moveSpeed" #moveSpeed="ngModel" [(ngModel)]="unit.moveSpeed" min="0" required />
             <div *ngIf="moveSpeed.errors && moveSpeed.errors.required" class="label label-danger">This field is required.</div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4 col-md-4 col-sm-12">
             <label>Line of Sight</label>
             <input type="number" class="form-control" name="lineOfSight" #lineOfSight="ngModel" [(ngModel)]="unit.lineOfSight" min="0" required />
             <div *ngIf="lineOfSight.errors && lineOfSight.errors.required" class="label label-danger">This field is required.</div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4 col-md-4 col-sm-12">
             <label>Health</label>
             <input type="number" class="form-control" name="health" #health="ngModel" [(ngModel)]="unit.health" min="0" required />
             <div *ngIf="health.errors && health.errors.required" class="label label-danger">This field is required.</div>
@@ -69,9 +71,30 @@
     </div>
 
     <div class="form-group">
-        <label>Attack Range</label>
-        <label>Attack Type</label>
-        <label>Attack Speed</label>
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <label>Attack Damage</label>
+            <input type="number" class="form-control" name="attack" #attack="ngModel" [(ngModel)]="unit.attack" min="0" required />
+            <div *ngIf="attack.errors && attack.errors.required" class="label label-danger">This field is required.</div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <label>Attack Range</label>
+            <input type="number" class="form-control" name="attackRange" #attackRange="ngModel" [(ngModel)]="unit.attackRange" min="0" required />
+            <div *ngIf="attackRange.errors && attackRange.errors.required" class="label label-danger">This field is required.</div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <label>Attack Type</label>
+            <select class="form-control" name="attackTypeId" #attackTypeId="ngModel" [(ngModel)]="unit.attackTypeId" required>
+                <option *ngFor="let attackType of attackTypes" [value]="attackType.attackTypeId">
+                    {{ attackType.attackTypeName }}
+                </option>
+            </select>
+            <div *ngIf="attackTypeId.errors && attackTypeId.errors.required" class="label label-danger">This field is required.</div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <label>Attack Speed</label>
+            <input type="number" class="form-control" name="attackSpeed" #attackSpeed="ngModel" [(ngModel)]="unit.attackSpeed" min="0" required />
+            <div *ngIf="attackSpeed.errors && attackSpeed.errors.required" class="label label-danger">This field is required.</div>
+        </div>
     </div>
 
     <div class="form-group controls">

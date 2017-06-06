@@ -1,4 +1,4 @@
-﻿import { BaseEntity } from '../../models/base-entity';
+﻿import { BaseEntity } from '../../../shared/base-entity';
 
 export class Unit extends BaseEntity {
     public unitId: number;

@@ -2,8 +2,8 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { Unit } from './unit';
 import { UnitService } from './unit.service';
-import { UnitType } from '../../models/lookup-models';
-import { LookupService } from '../../shared/lookup.service';
+import { AttackType, UnitType } from '../../../shared/lookup-models';
+import { LookupService } from '../../../shared/lookup.service';
 
 @Component({
     selector: 'unit-detail',
@@ -13,6 +13,7 @@ import { LookupService } from '../../shared/lookup.service';
 
 @Injectable()
 export class UnitDetailComponent implements OnInit {
+    private attackTypes: AttackType[];
     private unit: Unit;
     private unitTypes: UnitType[];
 
@@ -44,6 +45,11 @@ export class UnitDetailComponent implements OnInit {
         this.lookupService.getUnitTypes()
             .subscribe((unitTypes: UnitType[]) => {
                 this.unitTypes = unitTypes;
+            });
+
+        this.lookupService.getAttackTypes()
+            .subscribe((attackTypes: AttackType[]) => {
+                this.attackTypes = attackTypes;
             });
     }
 

@@ -41,7 +41,7 @@ export class UnitService {
             .catch(this.handleError);
     }
 
-    updateUnit(unit: Unit): Observable<any> {
+    public updateUnit(unit: Unit): Observable<any> {
         return this.http.put(this.url + unit.unitId, unit)
         .catch(this.handleError);
     }
