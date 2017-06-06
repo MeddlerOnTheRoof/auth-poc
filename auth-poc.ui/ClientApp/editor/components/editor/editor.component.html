@@ -1,0 +1,17 @@
+﻿<div class="page-header">
+    <h1>Editor</h1>
+    <ul class="nav nav-tabs">
+        <li role="presentation" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
+            <a [routerLink]="['./']">
+                Dashboard
+            </a>
+        </li>
+        <li [routerLinkActive]="['link-active']">
+            <a [routerLink]="['./unit-list']">
+                Units
+            </a>
+        </li>
+    </ul>
+</div>
+
+<router-outlet></router-outlet>
