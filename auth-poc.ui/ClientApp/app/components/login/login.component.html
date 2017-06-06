@@ -1,0 +1,23 @@
+﻿<h1>Login</h1>
+
+<form name="form" (ngSubmit)="submit()" #f="ngForm">
+    <div class="panel panel-login">
+        <div class="panel-body">
+            <div class="form-group">
+                <input type="text" class="form-control" name="userName" [(ngModel)]="username" maxlength="25" placeholder="username" #userName="ngModel" ngModel required />
+                <div *ngIf="userName.errors && userName.errors?.required" class="label label-danger">Username is required</div>
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control" name="psswd" [(ngModel)]="password" maxlength="25" placeholder="password" #psswd="ngModel" ngModel required />
+                <div *ngIf="psswd.errors && psswd.errors?.required" class="label label-danger">Password is required</div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <input type="submit" [disabled]="!f.form.valid" class="btn btn-success" value="Log In">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
