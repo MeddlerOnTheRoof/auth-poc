@@ -26,9 +26,7 @@ begin try
 			insert into dbo.UserAccount (UserAccountId, UserAccountName, UserAccountPassword, UserRoleId, CreatedByUser, CreatedByDate, ModifiedByUser, ModifiedByDate)
 			values 
 				(1, 'admin', 'password', 1, @user, @date, @user, @date),
-				(2, 'content_creator_example', 'password', 2, @user, @date, @user, @date),
-				(3, 'content_contributor_example', 'password', 3, @user, @date, @user, @date),
-				(4, 'content_consumer_example', 'password', 4, @user, @date, @user, @date)
+				(2, 'example_user', 'password', 2, @user, @date, @user, @date)
 
 			set identity_insert dbo.UserAccount off;
 

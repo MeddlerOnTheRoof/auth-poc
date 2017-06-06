@@ -26,9 +26,7 @@ begin try
 			insert into dbo.UserRole (UserRoleId, UserRoleName, CreatedByUser, CreatedByDate, ModifiedByUser, ModifiedByDate)
 			values 
 				(1, 'Admin', @user, @date, @user, @date),
-				(2, 'Content Creator', @user, @date, @user, @date),
-				(3, 'Content Contributor', @user, @date, @user, @date),
-				(4, 'Content Consumer', @user, @date, @user, @date)
+				(2, 'Normal User', @user, @date, @user, @date)
 
 			set identity_insert dbo.UserRole off;
 
